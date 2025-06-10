@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "NuGetPackageSearchCmdPalExtension (Package)": {
+      "commandName": "MsixPackage",
+      "doNotLaunchApp": true
+    },
+    "NuGetPackageSearchCmdPalExtension (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
