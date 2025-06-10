@@ -16,7 +16,7 @@ public partial class NuGetPackageSearchCmdPalExtensionCommandsProvider : Command
         DisplayName = "NuGet Package Search Extension";
         Icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
         _commands = [
-            new CommandItem(new NuGetPackageSearchCmdPalExtensionPage()) { Title = DisplayName },
+            new CommandItem(new NuGetPackageSearchCmdPalExtensionPage()) { Title = "Search NuGet Packages" },
         ];
     }
 

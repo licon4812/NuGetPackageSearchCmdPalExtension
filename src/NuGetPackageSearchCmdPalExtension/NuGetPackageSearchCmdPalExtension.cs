@@ -10,16 +10,10 @@ using Microsoft.CommandPalette.Extensions;
 namespace NuGetPackageSearchCmdPalExtension;
 
 [Guid("1ee4b1ff-1f87-4c96-90af-0fb6f415d3b6")]
-public sealed partial class NuGetPackageSearchCmdPalExtension : IExtension, IDisposable
+public sealed partial class NuGetPackageSearchCmdPalExtension(ManualResetEvent extensionDisposedEvent)
+    : IExtension, IDisposable
 {
-    private readonly ManualResetEvent _extensionDisposedEvent;
-
     private readonly NuGetPackageSearchCmdPalExtensionCommandsProvider _provider = new();
-
-    public NuGetPackageSearchCmdPalExtension(ManualResetEvent extensionDisposedEvent)
-    {
-        this._extensionDisposedEvent = extensionDisposedEvent;
-    }
 
     public object? GetProvider(ProviderType providerType)
     {
@@ -30,5 +24,5 @@ public sealed partial class NuGetPackageSearchCmdPalExtension : IExtension, IDis
         };
     }
 
-    public void Dispose() => this._extensionDisposedEvent.Set();
+    public void Dispose() => extensionDisposedEvent.Set();
 }
