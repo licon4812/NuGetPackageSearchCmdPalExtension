@@ -7,6 +7,11 @@ NuGetPackageSearchExtension is an extension for the PowerToys Command Palette th
 - Search for NuGet packages directly from the PowerToys Command Palette.
 - Copy package references in various formats (e.g., PackageReference, dotnet CLI command, NuGet Package Manager Console command).
 
+## Upcoming Features
+- **Install dotnet tools**: Install dotnet tools directly from the Command Palette.
+- **Search for specific package versions**: Filter search results to find specific versions of packages.
+- **Install dotnet template packages**: Install dotnet template packages directly from the Command Palette.
+
 ## Requirements
 
 - [PowerToys](https://github.com/microsoft/PowerToys) installed on your system.
