@@ -24,7 +24,9 @@ Coming soon
 
 ### Via Microsoft store
 
-Coming soon
+<a href="https://apps.microsoft.com/detail/9N4PJSLKJ4ST?mode=direct">
+ <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
 
 ### Via WinGet
 
