@@ -133,7 +133,14 @@ internal sealed partial class NuGetPackageSearchCmdPalExtensionPage : DynamicLis
                 Title = id,
                 Subtitle = version,
                 Icon = icon,
-                Command = new CopyTextCommand(id ?? string.Empty)
+                Command = new CopyTextCommand(id ?? string.Empty) { Name = "Copy Package Name" },
+                MoreCommands =
+                [
+                    new CommandContextItem(new CopyTextCommand($"<PackageReference Include=\"{id}\" Version=\"{version}\" />"){Name = "Copy Package Reference"}),
+                    new CommandContextItem(new CopyTextCommand($"dotnet add package {id} --version {version}"){Name = "Copy .NET CLI command"}),
+                    new CommandContextItem(new CopyTextCommand($"NuGet\\Install-Package {id} -Version {version}"){Name = "Copy Nuget Package Manager command"}),
+                    new CommandContextItem(new CopyTextCommand($"#r \"nuget: {id}, {version}\""){Name = "Copy Script & Interactive"})
+                ]
             });
         }
 
