@@ -116,15 +116,23 @@ internal sealed partial class NuGetPackageSearchCmdPalExtensionPage : DynamicLis
 
         if (!doc.RootElement.TryGetProperty("data", out var dataElement) ||
             dataElement.ValueKind != System.Text.Json.JsonValueKind.Array) return results;
+
         foreach (var package in dataElement.EnumerateArray())
         {
             var id = package.GetProperty("id").GetString();
             var version = package.GetProperty("version").GetString();
+            string? iconUrl = null;
+            if (package.TryGetProperty("iconUrl", out var iconUrlProp) && iconUrlProp.ValueKind == System.Text.Json.JsonValueKind.String)
+            {
+                iconUrl = iconUrlProp.GetString();
+            }
+            // Fallback to a glyph if iconUrl is missing
+            var icon = !string.IsNullOrEmpty(iconUrl) ? new IconInfo(iconUrl) : new IconInfo("\uE7B8");
             results.Add(new ListItem
             {
                 Title = id,
                 Subtitle = version,
-                Icon = new IconInfo("https://api.nuget.org/v3-flatcontainer/microsoft.playwright/1.52.0/icon"),
+                Icon = icon,
                 Command = new CopyTextCommand(id ?? string.Empty)
             });
         }
