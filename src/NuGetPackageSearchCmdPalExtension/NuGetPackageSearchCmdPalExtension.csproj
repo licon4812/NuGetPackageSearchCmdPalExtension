@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <RootNamespace>NuGetPackageSearchCmdPalExtension</RootNamespace>
@@ -41,7 +41,6 @@
     <PackageReference Include="Microsoft.Windows.CsWinRT" />
     <PackageReference Include="Microsoft.WindowsAppSDK" />
     <PackageReference Include="Microsoft.Web.WebView2" />
-    <PackageReference Include="NuGet.Protocol" />
     <PackageReference Include="System.Formats.Asn1" />
     <PackageReference Include="System.Text.Json" />
     <PackageReference Include="Shmuelie.WinRTServer" />
