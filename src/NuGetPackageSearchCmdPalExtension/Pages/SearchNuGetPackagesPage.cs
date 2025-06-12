@@ -15,14 +15,14 @@ using Microsoft.CommandPalette.Extensions.Toolkit;
 
 namespace NuGetPackageSearchCmdPalExtension.Pages;
 
-internal sealed partial class NuGetPackageSearchCmdPalExtensionPage : DynamicListPage, IDisposable
+internal sealed partial class SearchNuGetPackagesPage : DynamicListPage, IDisposable
 {
     private bool _isError;
     private readonly CancellationTokenSource _cancellationTokenSource = new();
     private readonly BufferBlock<string> _searchTextBuffer = new();
     private IReadOnlyList<ListItem> _results = [];
 
-    public NuGetPackageSearchCmdPalExtensionPage()
+    public SearchNuGetPackagesPage()
     {
         // Retrieve the app version
         var version = Package.Current.Id.Version;
