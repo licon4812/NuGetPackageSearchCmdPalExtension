@@ -63,6 +63,7 @@
     <WarningsNotAsErrors>IL2081</WarningsNotAsErrors>
 
     <PublishTrimmed>true</PublishTrimmed>
+    <PublishAot>true</PublishAot>
     <PublishSingleFile>true</PublishSingleFile>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
