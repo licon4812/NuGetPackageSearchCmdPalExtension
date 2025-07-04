@@ -139,7 +139,11 @@ internal sealed partial class SearchNuGetPackagesPage : DynamicListPage, IDispos
                     new CommandContextItem(new CopyTextCommand($"<PackageReference Include=\"{id}\" Version=\"{version}\" />"){Name = "Copy Package Reference"}),
                     new CommandContextItem(new CopyTextCommand($"dotnet add package {id} --version {version}"){Name = "Copy .NET CLI command"}),
                     new CommandContextItem(new CopyTextCommand($"NuGet\\Install-Package {id} -Version {version}"){Name = "Copy Nuget Package Manager command"}),
-                    new CommandContextItem(new CopyTextCommand($"#r \"nuget: {id}, {version}\""){Name = "Copy Script & Interactive"})
+                    new CommandContextItem(new CopyTextCommand($"#r \"nuget: {id}, {version}\""){Name = "Copy Script & Interactive"}),
+                    new CommandContextItem(new CopyTextCommand($"#:package {id}@{version}"){Name = "Copy File-based Apps"}),
+                    new CommandContextItem(new CopyTextCommand($"#addin nuget:?package={id}={version}"){Name = "Copy Cake Addin"}),
+                    new CommandContextItem(new CopyTextCommand($"#tool nuget:?package={id}&version={version}"){Name = "Copy Cake Tool"})
+
                 ]
             });
         }
