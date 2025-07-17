@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 
@@ -97,9 +98,14 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
                                     Icon = new IconInfo("\uE896")
                                 },
                                 MoreCommands = [
-                                    new CommandContextItem("Update All Templates",name:"Update All Templates", action: UpdateAllTemplates())
+                                    new CommandContextItem(
+                                        "Update All Templates",
+                                        name:"Update All Templates",
+                                        action: UpdateAllTemplates(),
+                                        result:CommandResult.GoHome()
+                                    )
                                     {
-                                        Icon = new IconInfo("\uE896")
+                                        Icon = new IconInfo("\uE896"),
                                     }
                                 ]
                             });
@@ -137,6 +143,9 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
         {
             return () =>
             {
+                var toast = new ToastStatusMessage($"Updating Template: {packageName} to {version}");
+                toast.Show();
+                Thread.Sleep(TimeSpan.FromSeconds(5));
                 var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -158,6 +167,9 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
         {
             return () =>
             {
+                var toast = new ToastStatusMessage("Updating All Dotnet Templates");
+                toast.Show();
+                Thread.Sleep(TimeSpan.FromSeconds(5));
                 var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
