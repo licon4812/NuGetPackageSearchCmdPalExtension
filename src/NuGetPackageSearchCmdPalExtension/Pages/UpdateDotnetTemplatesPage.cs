@@ -163,7 +163,7 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
                     StartInfo = new ProcessStartInfo
                     {
                         FileName = "dotnet",
-                        Arguments = "new update --force",
+                        Arguments = "new update",
                         RedirectStandardOutput = true,
                         RedirectStandardError = true,
                         UseShellExecute = false,
