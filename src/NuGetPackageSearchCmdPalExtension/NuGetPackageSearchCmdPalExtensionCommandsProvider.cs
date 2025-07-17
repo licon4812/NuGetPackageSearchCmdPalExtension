@@ -18,6 +18,7 @@ public partial class NuGetPackageSearchCmdPalExtensionCommandsProvider : Command
         _commands = [
             new CommandItem(new Pages.SearchNuGetPackagesPage()) { Title = "Search NuGet Packages" },
             new CommandItem(new Pages.SearchDotnetTemplatesPage()) {Title = "Search Dotnet Templates"},
+            new CommandItem(new Pages.UpdateDotnetTemplatesPage()) {Title = "Update Dotnet Templates"},
             new CommandItem(new Pages.SearchDotnetToolsPage()){Title = "Search Dotnet Tools"}
         ];
     }
