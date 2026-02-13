@@ -151,8 +151,8 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
                         }){Icon = new IconInfo("\uE896"), Name = "Install tool globally"}),
                         new CommandContextItem(new CopyTextCommand($"dotnet tool install --local {id} --version {version}"){Name = "Copy local install command"}),
                         new CommandContextItem(new CopyTextCommand($"#tool dotnet:?package={id}&version={version}"){Name = "Copy cake tool"}),
-                        new CommandContextItem(new CopyTextCommand($"nuke :add-package {id} --version {version}"){Name = "Copy NUKE"})
-
+                        new CommandContextItem(new CopyTextCommand($"nuke :add-package {id} --version {version}"){Name = "Copy NUKE"}),
+                        new CommandContextItem(new OpenUrlCommand($"https://www.nuget.org/packages/{id}"){Name = "Open in NuGet Gallery"})
                     ]
                 });
             }
