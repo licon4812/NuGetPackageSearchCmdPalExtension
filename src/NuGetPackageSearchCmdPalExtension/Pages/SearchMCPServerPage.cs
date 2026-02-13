@@ -163,7 +163,8 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
                                                                      }
                                                                      """)
                             {Name = "Copy MCP Server"}
-                        )
+                        ),
+                        new CommandContextItem(new OpenUrlCommand($"https://www.nuget.org/packages/{id}"){Name = "Open in NuGet Gallery"})
                     ]
                 });
             }

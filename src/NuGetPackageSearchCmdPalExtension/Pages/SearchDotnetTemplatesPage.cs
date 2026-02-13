@@ -148,7 +148,8 @@ namespace NuGetPackageSearchCmdPalExtension.Pages
                             process.StartInfo = startInfo;
                             process.Start();
                             process.WaitForExit();
-                        }){Icon = new IconInfo("\uE896"), Name = "Install Template"})
+                        }){Icon = new IconInfo("\uE896"), Name = "Install Template"}),
+                        new CommandContextItem(new OpenUrlCommand($"https://www.nuget.org/packages/{id}"){Name = "Open in NuGet Gallery"})
                     ]
                 });
             }
